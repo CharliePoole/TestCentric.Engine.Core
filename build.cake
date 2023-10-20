@@ -21,8 +21,8 @@ using System.Threading.Tasks;
 BuildSettings.Initialize(
 	Context,
 	"TestCentric.Engine",
-	solutionFile: "testcentric-engine.sln",
-	githubRepository: "testcentric-engine",
+	solutionFile: "TestCentric.Engine.Core.sln",
+	githubRepository: "TestCentric.Engine.Core",
 	unitTests: "**/*.tests.exe|**/*.tests.dll"
 );
 
@@ -34,9 +34,9 @@ BuildSettings.Packages.Add(new NuGetPackage(
 	id: "TestCentric.Engine.Core",
 	title: "TestCentric Engine Core Assembly",
 	description: "This package includes the TestCentric engine.core assembly, which forms part of the TestCentric engine. It is provided in a separate package use in creating pluggable agents.",
-	basePath: "src/TestEngine/testcentric.engine.core/bin/" + BuildSettings.Configuration,
+	basePath: "src/TestCentric.Engine.Core/bin/" + BuildSettings.Configuration,
 	packageContent: new PackageContent(
-		new FilePath[] { "../../../../../LICENSE.txt", "../../../../../testcentric.png" },
+		new FilePath[] { "../../../../LICENSE.txt", "../../../../testcentric.png" },
 		new DirectoryContent("lib/net20").WithFiles(
 			"net20/testcentric.engine.core.dll", "net20/testcentric.engine.core.pdb", "net20/testcentric.engine.api.dll",
 			"net20/testcentric.engine.metadata.dll", "net20/testcentric.extensibility.dll", "net20/testcentric.extensibility.api.dll" ),
@@ -66,7 +66,6 @@ BuildSettings.Packages.Add(new NuGetPackage(
 			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll",
 			"Microsoft.Extensions.DependencyModel.dll")
 	}));
-});
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
