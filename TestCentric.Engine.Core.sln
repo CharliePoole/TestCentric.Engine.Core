@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C15BACF2-77D9-4F93-8099-EA67A95E2562}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		build.cake = build.cake
+		build.cmd = build.cmd
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		GitReleaseManager.yaml = GitReleaseManager.yaml
+		GitVersion.yml = GitVersion.yml
+		LICENSE.txt = LICENSE.txt
+		NuGet.config = NuGet.config
+		README.md = README.md
+		testcentric.png = testcentric.png
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testcentric.engine.core", "src\testcentric.engine.core\testcentric.engine.core.csproj", "{8E26DCA6-E5BC-40A7-8498-9480C883F0C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testcentric.engine.core.tests", "src\testcentric.engine.core.tests\testcentric.engine.core.tests.csproj", "{E45FEFFE-594D-406F-930B-8B1F6DD2D174}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mock-assembly", "src\mock-assembly\mock-assembly.csproj", "{8E2D311F-92B4-4789-B670-BD1365BD7AF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E26DCA6-E5BC-40A7-8498-9480C883F0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E26DCA6-E5BC-40A7-8498-9480C883F0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E26DCA6-E5BC-40A7-8498-9480C883F0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E26DCA6-E5BC-40A7-8498-9480C883F0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45FEFFE-594D-406F-930B-8B1F6DD2D174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45FEFFE-594D-406F-930B-8B1F6DD2D174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45FEFFE-594D-406F-930B-8B1F6DD2D174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45FEFFE-594D-406F-930B-8B1F6DD2D174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E2D311F-92B4-4789-B670-BD1365BD7AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2D311F-92B4-4789-B670-BD1365BD7AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2D311F-92B4-4789-B670-BD1365BD7AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2D311F-92B4-4789-B670-BD1365BD7AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C3ABF12-C6C9-46C3-BE92-E7FF61719049}
+	EndGlobalSection
+EndGlobal
