@@ -1,9 +1,3 @@
-const string ENGINE_PACKAGE_ID = "TestCentric.Engine";
-const string ENGINE_CORE_PACKAGE_ID = "TestCentric.Engine.Core";
-const string ENGINE_API_PACKAGE_ID = "TestCentric.Engine.Api";
-
-const string TEST_BED_EXE = "test-bed.exe";
-
 // Load the recipe
 #load nuget:?package=TestCentric.Cake.Recipe&version=1.1.0-dev00054
 // Comment out above line and uncomment below for local tests of recipe changes
