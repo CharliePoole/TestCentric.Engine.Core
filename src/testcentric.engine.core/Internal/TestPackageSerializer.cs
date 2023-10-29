@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace TestCentric.Engine.Internal
 {
-    internal class TestPackageSerializer
+    public class TestPackageSerializer
     {
         public TestPackageSerializer() { }
 
