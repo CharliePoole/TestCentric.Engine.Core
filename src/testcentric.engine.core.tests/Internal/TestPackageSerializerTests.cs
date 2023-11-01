@@ -85,15 +85,29 @@ namespace TestCentric.Engine.Internal
 
             var node = doc.DocumentElement;
             Assert.That(node.Name, Is.EqualTo("TestPackage"));
+            var id1 = node.GetAttribute("id");
+            Assert.That(!string.IsNullOrEmpty(id1));
             Assert.That(node.HasAttribute("id"));
-            Assert.That(node.GetAttribute("fullname"), Is.EqualTo(Path.GetFullPath("test1.dll")));
+            Assert.False(node.HasAttribute("fullname"));
 
-            var settings = node.FirstChild;
-            Assert.That(settings.Name, Is.EqualTo("Settings"));
-            Assert.That(settings.Attributes.Count, Is.EqualTo(3));
-            Assert.That(settings.GetAttribute("StringSetting"), Is.EqualTo("SomeString"));
-            Assert.That(int.Parse(settings.GetAttribute("IntSetting")), Is.EqualTo(999));
-            Assert.That(bool.Parse(settings.GetAttribute("BoolSetting")), Is.True);
+            CheckSettings(node.SelectSingleNode("Settings"));
+
+            var subPackage = node.SelectSingleNode("TestPackage");
+            var id2 = subPackage.GetAttribute("id");
+            Assert.That(!string.IsNullOrEmpty(id2));
+            Assert.That(id2, Is.Not.EqualTo(id1));
+            Assert.That(subPackage.GetAttribute("fullname"), Is.EqualTo(Path.GetFullPath("test1.dll")));
+
+            CheckSettings(subPackage.SelectSingleNode("Settings"));
+
+            void CheckSettings(XmlNode settings)
+            {
+                Assert.That(settings.Name, Is.EqualTo("Settings"));
+                Assert.That(settings.Attributes.Count, Is.EqualTo(3));
+                Assert.That(settings.GetAttribute("StringSetting"), Is.EqualTo("SomeString"));
+                Assert.That(int.Parse(settings.GetAttribute("IntSetting")), Is.EqualTo(999));
+                Assert.That(bool.Parse(settings.GetAttribute("BoolSetting")), Is.True);
+            }
         }
     }
 }

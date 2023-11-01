@@ -86,34 +86,30 @@ namespace TestCentric.Engine.Internal
             if (topNode.Name != "TestPackage")
                 throw new ArgumentException("Xml provided is not a TestPackage");
 
-            return CreateTestPackage(topNode);
+            // Top-level package must always be anonymous.
+            var id = topNode.GetAttribute("id");
+            var package = new TestPackage(new string[0]);
+            PopulatePackage(package, topNode);
+            return package;
         }
 
-        private TestPackage CreateTestPackage(XmlNode topNode)
+        private void PopulatePackage(TestPackage package, XmlNode node)
         {
-            // For now, assume package is not anonymous
-            var id = topNode.GetAttribute("id");
-            var fullName = topNode.GetAttribute("fullname");
-
-            var package = fullName != null
-                ? new TestPackage(fullName)
-                : new TestPackage(new string[0]);
-
-            foreach (XmlNode child in topNode.ChildNodes)
+            foreach (XmlNode child in node.ChildNodes)
             {
                 switch (child.Name)
                 {
                     case "Settings":
-                        foreach (XmlNode node in child.Attributes)
-                            package.AddSetting(node.Name, node.Value);
+                        foreach (XmlNode attr in child.Attributes)
+                            package.AddSetting(attr.Name, attr.Value);
                         break;
                     case "TestPackage":
-                        package.AddSubPackage(CreateTestPackage(child));
+                        var fullName = child.GetAttribute("fullname");
+                        package.AddSubPackage(fullName);
+                        PopulatePackage(package, child);
                         break;
                 }
             }
-
-            return package;
         }
     }
 }
