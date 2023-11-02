@@ -12,7 +12,6 @@ namespace TestCentric.Engine.Internal
     public class TestPackageSerializerTests
     {
         TestPackage _package;
-        TestPackageSerializer _serializer;
 
         [OneTimeSetUp]
         public void CreateTestPackage()
@@ -23,18 +22,13 @@ namespace TestCentric.Engine.Internal
             _package.AddSetting("BoolSetting", true);
         }
 
-        [SetUp]
-        public void CreateSerializer()
-        {
-            _serializer = new TestPackageSerializer();
-        }
-
         [Test]
         public void SerializeToXmlWriter()
         {
             var stringWriter = new StringWriter();
             var xmlWriter = XmlWriter.Create(stringWriter);
-            _serializer.Serialize(xmlWriter, _package);
+
+            _package.Serialize(xmlWriter);
 
             xmlWriter.Flush();
             xmlWriter.Close();
@@ -46,7 +40,7 @@ namespace TestCentric.Engine.Internal
         public void SerializeToStringWriter()
         {
             var stringWriter = new StringWriter();
-            _serializer.Serialize(stringWriter, _package);
+            _package.Serialize(stringWriter);
 
             VerifyXml(stringWriter.ToString());
         }
@@ -60,7 +54,7 @@ namespace TestCentric.Engine.Internal
         [Test]
         public void RoundTripTest()
         {
-            var newPackage = _serializer.Deserialize(_package.ToXml());
+            var newPackage = TestPackage.Deserialize(_package.ToXml());
 
             Assert.Multiple(() =>
             {

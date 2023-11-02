@@ -50,7 +50,7 @@ namespace TestCentric.Engine.Communication.Protocols
             var message = messages[0];
 
             Assert.That(message.Code, Is.EqualTo(MessageCode.CommandResult));
-            var newPackage = new TestPackageSerializer().Deserialize(message.Data);
+            var newPackage = TestPackage.Deserialize(message.Data);
             ComparePackages(newPackage, originalPackage);
         }
 
@@ -88,7 +88,7 @@ namespace TestCentric.Engine.Communication.Protocols
             foreach (TestEngineMessage message in messages)
             {
                 Assert.That(message.Code, Is.EqualTo(MessageCode.CommandResult));
-                var newPackage = new TestPackageSerializer().Deserialize(message.Data);
+                var newPackage = TestPackage.Deserialize(message.Data);
                 ComparePackages(newPackage, originalPackage);
             }
         }
