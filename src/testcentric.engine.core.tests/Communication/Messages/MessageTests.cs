@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using TestCentric.Engine.Communication.Protocols;
-using TestCentric.Engine.Internal;
+using TestCentric.Engine.TestUtilities;
 
 namespace TestCentric.Engine.Communication.Messages
 {
@@ -17,7 +17,7 @@ namespace TestCentric.Engine.Communication.Messages
 
         private BinarySerializationProtocol _wireProtocol = new BinarySerializationProtocol();
 
-        static TestCaseData[] MessageTestData = new TestCaseData[]
+        static readonly TestCaseData[] MessageTestData = new TestCaseData[]
         {
             new TestCaseData(MessageCode.CreateRunner, TEST_PACKAGE),
             new TestCaseData(MessageCode.LoadCommand, null),

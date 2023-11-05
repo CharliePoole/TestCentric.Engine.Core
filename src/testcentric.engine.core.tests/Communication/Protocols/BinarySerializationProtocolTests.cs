@@ -6,9 +6,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml.Serialization;
 using NUnit.Framework;
 using TestCentric.Engine.Communication.Messages;
-using TestCentric.Engine.Internal;
+using TestCentric.Engine.TestUtilities;
 
 namespace TestCentric.Engine.Communication.Protocols
 {
@@ -50,7 +51,8 @@ namespace TestCentric.Engine.Communication.Protocols
             var message = messages[0];
 
             Assert.That(message.Code, Is.EqualTo(MessageCode.CommandResult));
-            var newPackage = TestPackage.Deserialize(message.Data);
+            Assert.That(message.Data, Is.EqualTo(originalPackage.ToXml()));
+            var newPackage = DeserializePackage(message.Data);
             ComparePackages(newPackage, originalPackage);
         }
 
@@ -88,7 +90,7 @@ namespace TestCentric.Engine.Communication.Protocols
             foreach (TestEngineMessage message in messages)
             {
                 Assert.That(message.Code, Is.EqualTo(MessageCode.CommandResult));
-                var newPackage = TestPackage.Deserialize(message.Data);
+                var newPackage = DeserializePackage(message.Data);
                 ComparePackages(newPackage, originalPackage);
             }
         }
@@ -128,6 +130,13 @@ namespace TestCentric.Engine.Communication.Protocols
 
             Assert.That(newPackage, Is.TypeOf<TestPackage>());
             ComparePackages((TestPackage)newPackage, originalPackage);
+        }
+
+        private TestPackage DeserializePackage(string xml)
+        {
+            var reader = new StringReader(xml);
+            var serializer = new XmlSerializer(typeof(TestPackage));
+            return serializer.Deserialize(reader) as TestPackage;
         }
 
         private void ComparePackages(TestPackage newPackage, TestPackage oldPackage)
