@@ -11,6 +11,7 @@
         <DebugType>Full</DebugType>
         <OutputPath>bin\$(Configuration)\</OutputPath>
 	    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<NoWarn>1685</NoWarn>
     </PropertyGroup>
 
     <!-- Properties used in generating AssemblyInfo.cs for this project -->

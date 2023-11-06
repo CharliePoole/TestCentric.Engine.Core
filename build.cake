@@ -28,8 +28,9 @@ BuildSettings.Packages.Add(new NuGetPackage(
 	id: "TestCentric.Engine.Core",
 	title: "TestCentric Engine Core Assembly",
 	description: "This package includes the TestCentric engine.core assembly, which forms part of the TestCentric engine. It is provided in a separate package use in creating pluggable agents.",
+	source: "nuget/TestCentric.Engine.Core.nuspec",
 	basePath: "src/TestCentric.Engine.Core/bin/" + BuildSettings.Configuration,
-	packageContent: new PackageContent(
+	/*packageContent: new PackageContent(
 		new FilePath[] { "../../../../LICENSE.txt", "../../../../testcentric.png" },
 		new DirectoryContent("lib/net20").WithFiles(
 			"net20/testcentric.engine.core.dll", "net20/testcentric.engine.core.pdb", "net20/testcentric.engine.api.dll",
@@ -43,22 +44,17 @@ BuildSettings.Packages.Add(new NuGetPackage(
 		new DirectoryContent("lib/netcoreapp3.1").WithFiles(
 			"netcoreapp3.1/testcentric.engine.core.dll", "netcoreapp3.1/testcentric.engine.core.pdb", "netcoreapp3.1/testcentric.engine.api.dll",
 			"netcoreapp3.1/testcentric.engine.metadata.dll", "netcoreapp3.1/testcentric.extensibility.dll", "netcoreapp3.1/testcentric.extensibility.api.dll",
-			"netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll" )),
+			"netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll" )),*/
 	checks:new PackageCheck[] {
-		HasFiles("LICENSE.txt", "testcentric.png"),
+		HasFiles("LICENSE.txt", "README.md", "testcentric.png"),
 		HasDirectory("lib/net20").WithFiles(
-			"testcentric.engine.core.dll", "testcentric.engine.core.pdb", "testcentric.engine.api.dll",
-			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll"),
+			"testcentric.engine.core.dll", "testcentric.engine.core.pdb"),
 		HasDirectory("lib/net462").WithFiles(
-			"testcentric.engine.core.dll", "testcentric.engine.core.pdb", "testcentric.engine.api.dll",
-			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll"),
+			"testcentric.engine.core.dll", "testcentric.engine.core.pdb"),
 		HasDirectory("lib/netstandard2.0").WithFiles(
-			"testcentric.engine.core.dll", "testcentric.engine.core.pdb", "testcentric.engine.api.dll",
-			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll"),
+			"testcentric.engine.core.dll", "testcentric.engine.core.pdb"),
 		HasDirectory("lib/netcoreapp3.1").WithFiles(
-			"testcentric.engine.core.dll", "testcentric.engine.core.pdb", "testcentric.engine.api.dll",
-			"testcentric.engine.metadata.dll", "testcentric.extensibility.dll", "testcentric.extensibility.api.dll",
-			"Microsoft.Extensions.DependencyModel.dll")
+			"testcentric.engine.core.dll", "testcentric.engine.core.pdb")
 	}));
 
 //////////////////////////////////////////////////////////////////////
