@@ -25,6 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testcentric.engine.core.tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mock-assembly", "src\mock-assembly\mock-assembly.csproj", "{8E2D311F-92B4-4789-B670-BD1365BD7AF9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{B22D1E67-F15B-41BF-AC46-C00383A24861}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\TestCentric.Engine.Core.nuspec = nuget\TestCentric.Engine.Core.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +51,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B22D1E67-F15B-41BF-AC46-C00383A24861} = {C15BACF2-77D9-4F93-8099-EA67A95E2562}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C3ABF12-C6C9-46C3-BE92-E7FF61719049}
