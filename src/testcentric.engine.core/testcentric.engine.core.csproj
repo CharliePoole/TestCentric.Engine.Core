@@ -8,6 +8,8 @@
 	    <DebugType>Full</DebugType>
 	    <OutputPath>bin\$(Configuration)\</OutputPath>
 	    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<CheckEolTargetFramework>false</CheckEolTargetFramework>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<NoWarn>1701;1702;618</NoWarn>
 	</PropertyGroup>
 
@@ -45,7 +47,7 @@
     </ItemGroup>
 
     <ItemGroup>
-		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-dev00036" />
+		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-beta4" />
 		<PackageReference Include="TestCentric.Metadata" Version="2.0.0" />
 	    <PackageReference Include="TestCentric.Extensibility" Version="2.0.0" />
 		<PackageReference Include="TestCentric.InternalTrace" Version="1.0.0" />
