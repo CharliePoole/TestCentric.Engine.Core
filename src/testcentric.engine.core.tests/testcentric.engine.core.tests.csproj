@@ -11,6 +11,7 @@
         <DebugType>Full</DebugType>
         <OutputPath>bin\$(Configuration)\</OutputPath>
 	    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<NoWarn>1685</NoWarn>
     </PropertyGroup>
 

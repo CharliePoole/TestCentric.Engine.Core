@@ -8,6 +8,8 @@
 	    <DebugType>Full</DebugType>
 	    <OutputPath>bin\$(Configuration)\</OutputPath>
 	    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<CheckEolTargetFramework>false</CheckEolTargetFramework>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
 		<NoWarn>1701;1702;618</NoWarn>
 	</PropertyGroup>
 
