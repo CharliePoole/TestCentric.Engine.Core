@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <RootNamespace>TestCentric.Engine</RootNamespace>
@@ -30,13 +30,6 @@
         <Reference Include="System.Web" />
     </ItemGroup>
 
-    <!--<ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.6'">
-	    <PackageReference Include="Microsoft.Win32.Registry.AccessControl" Version="4.7.0" />
-	    <PackageReference Include="Microsoft.DotNet.InternalAbstractions" Version="1.0.0" />
-        <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
-        <PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.3.0" />
-    </ItemGroup>-->
-
     <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
 	    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
     </ItemGroup>
@@ -48,9 +41,6 @@
 
     <ItemGroup>
 		<PackageReference Include="TestCentric.Engine.Api" Version="2.0.0-beta4" />
-		<PackageReference Include="TestCentric.Metadata" Version="2.0.0" />
-	    <PackageReference Include="TestCentric.Extensibility" Version="2.0.0" />
-		<PackageReference Include="TestCentric.InternalTrace" Version="1.0.0" />
     </ItemGroup>
 
 </Project>
